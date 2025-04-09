@@ -1,0 +1,24 @@
+# Core scientific stack
+numpy
+scipy
+pandas
+matplotlib
+astropy
+astroquery
+scikit-learn
+colormaps
+
+# Optional/Standard libraries (no need to install, part of Python standard library)
+# - os
+# - sys
+# - time
+# - math
+# - shutil
+# - datetime
+# - csv
+# - warnings
+# - collections
+
+# If using a specific Python version, pin it (optional)
+# python==3.10
+
