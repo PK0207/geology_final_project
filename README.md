@@ -11,12 +11,17 @@ From GALAH we care about:
 - teff
 - Fe/H
 
+## Data Cleaning and Truncation
+**GALAH + APOGEE + RAVE**
+- Data missing some metallicities, dropping those rows entirely
+- Cutting off all stars with temperatures greater than $T_{eff}=7000K$ to limit selection to main sequence stars
+
 # Environment Management
 To create a python environment that is suitable to run this code, please run the following:
 ```
 python3 -m venv geo_final
 source geo_final/bin/activate
-pip install requirements.txt
+pip install -r requirements.txt
 python -m ipykernel install --user --name geo_final --display-name "Python geo_final"
 ```
 From this environment, you can run `jupyter notebook` and select the kernel named `geo_final`
