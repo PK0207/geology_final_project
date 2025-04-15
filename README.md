@@ -1,7 +1,8 @@
 # DATA
 We are using the GAIA DR3 star sample data set. This is considered to be one of largest and most thorough data sets for stellar astronomers to use. 
 We are looking to K-means clustering to identify the stars in the sample and their characteristics on the HR diagram. 
-Our first sample is from the Gaia DR3 star survey. We cut our data to include stars with an effective temperature less than 9000K. We do this to elimnate any very high mass stars, which are less common, more variable, and harder to observe. We also then calculate the absolute magnitude of the stars in our sample using the observed parallax and the photmeteric g band magnitude. Once we have a absolute magnitude we can make a magnitude cut. 
+Our first sample is from the Gaia DR3 star survey. We cut our data to include stars with an effective temperature less than 9000K. We do this to elimnate any very high mass stars, which are less common, more variable, and harder to observe. We also then calculate the absolute magnitude of the stars in our sample using the observed parallax and the photmeteric g band magnitude. Once we have a absolute magnitude we can make a magnitude cut. In astronomy we chose a the opposite values, meaning stars with a magnitude greater than zero are less bright than stars greater than zero. So we chose a magnitude cut of only including stars less than 18 magnitudes. This also removes any stars that calculated weird absolute magnitudes from the observations. 
+
 We determine the absolute magnitude 
 $ M = m + 5*(log 10 (1/ parallax))$
 
