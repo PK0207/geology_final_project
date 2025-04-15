@@ -1,8 +1,9 @@
 # DATA
 We are using the GAIA DR3 star sample data set. This is considered to be one of largest and most thorough data sets for stellar astronomers to use. 
 We are looking to K-means clustering to identify the stars in the sample and their characteristics on the HR diagram. 
-Our first sample is from the Gaia DR3 star survey. 
-We determine the absolute magnitude M = m + 5*(log 10 (1/ parallax)
+Our first sample is from the Gaia DR3 star survey. We cut our data to include stars with an effective temperature less than 9000K. We do this to elimnate any very high mass stars, which are less common, more variable, and harder to observe. We also then calculate the absolute magnitude of the stars in our sample using the observed parallax and the photmeteric g band magnitude. Once we have a absolute magnitude we can make a magnitude cut. 
+We determine the absolute magnitude 
+$ M = m + 5*(log 10 (1/ parallax))$
 
 
 A backup sample is "the GALAH_DR3_main_allstar_v2 is our main results catalogue. It contains results for 588,571 stars observed as part of the GALAH, K2-HERMES, TESS-HERMES, and other related surveys that used the HERMES spectrograph on the Anglo-Australian Telescope between November 2013 and February 2019. For all targets we provide stellar parameters, radial velocities, and elemental abundances."
