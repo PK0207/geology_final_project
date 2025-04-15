@@ -14,7 +14,7 @@ From GALAH we care about:
 ## Data Cleaning and Truncation
 **GALAH + APOGEE + RAVE**
 - Data missing some metallicities, dropping those rows entirely
-- Cutting off all stars with temperatures greater than $T_{eff}=7000K$ to limit selection to main sequence stars
+- Cutting off all stars with temperatures greater than $T_{eff}=9000K$ to limit selection to less extreme high mass stars, intermediate and low mass stars. 
 
 # Environment Management
 To create a python environment that is suitable to run this code, please run the following:
