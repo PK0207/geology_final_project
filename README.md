@@ -46,22 +46,19 @@ python -m ipykernel install --user --name geo_final --display-name "Python geo_f
 ```
 From this environment, you can run `jupyter notebook` and select the kernel named `geo_final`
 
-# Machine Learning 
-K means clustering to determine if we can reproduce the sub groups of stars that astronomers has created. 
-
 # Analysis 
-We are looking to determine if the K means clustering can determine the various differentiated charactersitics which astronomers have placed on different stars. Some of these groups include evolutionary states such as main sequence stars, red giant stars, and white dwarfs. Another includes differentiating between low mass and intermediate mass stars, which is an ongoing field of research in stellar structure research (Beyer et al. 2024). Lastly, we will look to possibly see if they can differentiate different spectral classes within stars parameters. Main sequence spectral types were generally broken up into O, B, A, F, G, K, and M type stars. These sub groups were declared by things such as mass, effective temperature and color (Pecaut & Mamajek 2022). Our star samples allow us to see clustering groups along the F, G, K, and M spectral type lines. Due to our sample selection, we see agreeing results from the K means clustering along the classification lines just based on effective temperature and logg parameters. We chose 
 
-Another clustering effect we see is the Kraft Break. The Kraft Break is known as the change in rotational velocity between low and intermediate mass stars. It is well known that stars above ~8 Msol will end their lifetime as black holes. The division and understanding of stellar evolution for low and intermediate mass stars is less known. In previous research we know that regular main seuqence F-type stars above 6550 K will continue to rapidly rotate as they evolve and any star less than 6550 K will continue to slowly lose their rotational speed over time. This break can then be theorized back to the internal physics within the stars. Inside the lower mass stars have an outter convective zone which generates a magnetic field. When coupled with the winds the star feels a torque againsts its rotation and begins to slow down. Stars above the break lack an outter convective zone, which causes them to lack an induced magnetic field and the star continues to rapidly rotate over its lifetime. 
+## K means clustering
+We are looking to determine if the K means clustering can determine the various differentiated charactersitics which astronomers have placed on different stars. Some of these groups include evolutionary states such as main sequence stars, red giant stars, and white dwarfs. Another includes differentiating between low mass and intermediate mass stars, which is an ongoing field of research in stellar structure research (Beyer et al. 2024). Main sequence spectral types were generally broken up into O, B, A, F, G, K, and M type stars. These sub groups were categorized based on mass, effective temperature and color (Pecaut & Mamajek 2022). Our star samples allow us to see clustering groups along the F, G, K, and M spectral type lines. Due to our sample selection, we see agreeing results from the K means clustering along the classification lines just based on effective temperature and logg parameters. We chose 
+### Gaia K-means clustering results
+![gaia_hrdiagram_cluster](https://github.com/user-attachments/assets/3efeb390-e76a-4950-b093-b2f9efd31ed9)
 
+### GALAH clustering results
 ![galah_hrdiagram_cluster](https://github.com/user-attachments/assets/62d04d80-d3de-41db-94c4-467beb5754c6)
 
-![TESS_hrdiagram_cluster5](https://github.com/user-attachments/assets/0300714f-e009-47e5-8f32-e6427787ab20)
-
-![Yu_clust_withTemp](https://github.com/user-attachments/assets/4988636e-9c7d-45a9-9684-3c8d5bd92586)
-
-
+### GALAH+APOGEE+RAVE clustering results
+![Yu_clust_3wTemp](https://github.com/user-attachments/assets/6fe2a0a5-2b27-4864-818f-133806198fbc)
+![Yu_clust_5wTemp](https://github.com/user-attachments/assets/83f5594a-a927-4f44-aeb7-3b1495a25319)
 
 
-
-
+Another clustering effect we see is the Kraft Break. The Kraft Break is known as the change in rotational velocity between low and intermediate mass stars. It is well known that stars above ~8 Msol will end their lifetime as black holes. The division and understanding of stellar evolution for low and intermediate mass stars is less known. In previous research we know that regular main seuqence F-type stars above 6550 K will continue to rapidly rotate as they evolve and any star less than 6550 K will continue to slowly lose their rotational speed over time. This break can then be theorized back to the internal physics within the stars. Inside the lower mass stars have an outter convective zone which generates a magnetic field. When coupled with the winds the star feels a torque againsts its rotation and begins to slow down. Stars above the break lack an outter convective zone, which causes them to lack an induced magnetic field and the star continues to rapidly rotate over its lifetime. 
