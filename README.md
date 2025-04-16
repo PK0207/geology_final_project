@@ -4,12 +4,15 @@ We are using the GAIA DR3 star sample data set. This is considered to be one of 
 We determine the absolute magnitude 
 $ M = m + 5*(log 10 (1/ parallax))$
 
+Our second sample is from the Yu et al 2023 sample of revised extinctions and radii for 1.5 million stars observed by APOGEE, GALAH, and RAVE. This sample well known to provide a well derived and unbiased set of parameters for a large number of stars with both spectroscopic and photometric data. They created a pipeline SEDEX which compares the spectral energy distribution predicted by the
+MARCS and BOSZ model spectra with 32 photometric bandpasses, combining data from 9 major, large-volume photometric surveys and uses asteroseismology to validate values.  
 
 A backup sample is "the GALAH_DR3_main_allstar_v2 is our main results catalogue. It contains results for 588,571 stars observed as part of the GALAH, K2-HERMES, TESS-HERMES, and other related surveys that used the HERMES spectrograph on the Anglo-Australian Telescope between November 2013 and February 2019. For all targets we provide stellar parameters, radial velocities, and elemental abundances."
 From GALAH we care about: 
 - logg
 - teff
 - Fe/H
+
 
 ## Data Cleaning and Truncation
 **GALAH + APOGEE + RAVE**
