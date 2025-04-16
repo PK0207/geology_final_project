@@ -1,7 +1,7 @@
 # Stellar Classification
-Classifying stars is useful to understand the patterns in physical properties and therefore formation histories, chemical processes, and other astrophysics. However, stellar classification is a notoriously difficult task in astronomy. The boundaries between stellar classes are hotly debated due to new discoveries in physical chemical properties. There are two persistent complications in this pursuit:
-1. _We cannot measure stellar parameters very accurately_
-2. _We  do not know the relationships between stellar parameters well, and_
+Beyond the star in our own system, it is rather difficult to observe other stars due to techology, distance, interference, etc. In the new era of large stellar surveys there have many astronomers who have taken on the feat of perfecting the physical structure and feature assumptions of various different subgroups of stars. Classifying stars is useful to understand the patterns in physical properties and therefore formation histories, chemical processes, and other astrophysics. However, stellar classification is a notoriously difficult task in astronomy. The boundaries between stellar classes are debated due to new discoveries in physical chemical properties. There are two persistent complications in this pursuit:
+1. _It is difficult to accurately measure stellar parameters_
+2. _Drawing phyiscal relationships between stellar observations and parameters is non-trivial_
 The first issue also exacerbates the second. Our goal in this project is to take **a physics agnostic approach to determining stellar classes** and use machine learning to highlight the inherent strong relationships within the data themselves.
 Stellar classes are usually represented on a Hertzsprunng-Russel (HR) diagram (shown below). This diagram plots the luminosity (observed) of stars against their temperature (derived). The resultant shape of the HR diagram is the evolutionary tracks a star could follow in its lifespan:
 ![HR_diag](https://github.com/user-attachments/assets/6410d742-d82e-48f8-af1e-536099bf4c5a)
@@ -11,7 +11,7 @@ The star starts from the bottom right, and evolves along the main-sequence, but 
 2. Between datasets whether these classifications match.
 
 # Data
-The first data set we are using is the GAIA DR3 TESS target star sample data set. This star sample includes stellar properties derrived from Gaia photometric observations and applied to stellar isochrone fitting to get the temperature, surface gravity, mass, and luminosities that we will use. This is considered to be one of largest and most thorough data available to astronomers, and was designed to estimate distances to stars. The data was made available through the Gaia [https://gea.esac.esa.int/archive/](online archive).
+The first data set we are using is from targets of the (Transiting Exoplanet Sattelite Survey) TESS planetary host star sample data set. This star sample includes stellar properties derrived from Gaia photometric observations and applied to stellar isochrone fitting to get the temperature, surface gravity, mass, and luminosities that we will use. This is considered to be one of largest and most thorough data available to astronomers, and was designed to estimate distances to stars. The data was made available through the Gaia [https://gea.esac.esa.int/archive/](online archive).
 
 Our second sample is from the Yu et al 2023 sample of revised extinctions and radii for 1.5 million stars observed by APOGEE, GALAH, and RAVE. This sample well known to provide a well derived and unbiased set of parameters for a large number of stars with both spectroscopic and photometric data. The data was made available throug [https://iopscience.iop.org/article/10.3847/1538-4365/acabc8#apjsacabc8t4](this paper) (Yu et al. 2023)
 
