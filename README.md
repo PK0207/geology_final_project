@@ -1,7 +1,14 @@
-# Project Summary: 
+# Stellar Classification
+Classifying stars is useful to understand the patterns in physical properties and therefore formation histories, chemical processes, and other astrophysics. However, stellar classification is a notoriously difficult task in astronomy. The boundaries between stellar classes are hotly debated due to new discoveries in physical chemical properties. There are two persistent complications in this pursuit:
+1. _We cannot measure stellar parameters very accurately_
+2. _We  do not know the relationships between stellar parameters well, and_
+The first issue also exacerbates the second. Our goal in this project is to take **a physics agnostic approach to determining stellar classes** and use machine learning to highlight the inherent strong relationships within the data themselves.
+Stellar classes are usually represented on a Hertzsprunng-Russel (HR) diagram (shown below). This diagram plots the luminosity (observed) of stars against their temperature (derived). The resultant shape of the HR diagram is the evolutionary tracks a star could follow in its lifespan:
+![HR_diag](https://github.com/user-attachments/assets/6410d742-d82e-48f8-af1e-536099bf4c5a)
 
-# Background
-Stellar Classification is a notoriously difficult 
+The star starts from the bottom right, and evolves along the main-sequence, but could "turn-off" to the giant branch, dwarf branch, or supergiant branch. _Our data will be primarily comprised of main sequence stars._ Notice in the image above, along the x-axis are the stellar classifications - OBAFGKM - listed roughly in decreasing mass order. The best indicator of stellar class is the temperature, and we will be using three different datasets to see if:
+1. Within the data set whether clear stellar classifications can be determined (using and not using temperature data)
+2. Between datasets whether these classifications match.
 
 # Data
 The first data set we are using is the GAIA DR3 TESS target star sample data set. This star sample includes stellar properties derrived from Gaia photometric observations and applied to stellar isochrone fitting to get the temperature, surface gravity, mass, and luminosities that we will use. This is considered to be one of largest and most thorough data available to astronomers, and was designed to estimate distances to stars. The data was made available through the Gaia [https://gea.esac.esa.int/archive/](online archive).
@@ -9,10 +16,6 @@ The first data set we are using is the GAIA DR3 TESS target star sample data set
 Our second sample is from the Yu et al 2023 sample of revised extinctions and radii for 1.5 million stars observed by APOGEE, GALAH, and RAVE. This sample well known to provide a well derived and unbiased set of parameters for a large number of stars with both spectroscopic and photometric data. The data was made available throug [https://iopscience.iop.org/article/10.3847/1538-4365/acabc8#apjsacabc8t4](this paper) (Yu et al. 2023)
 
 The third set we are using "the GALAH_DR3_main_allstar_v2 is our main results catalogue. It contains results for 588,571 stars observed as part of the GALAH, K2-HERMES, TESS-HERMES, and other related surveys that used the HERMES spectrograph on the Anglo-Australian Telescope between November 2013 and February 2019. For all targets we provide stellar parameters, radial velocities, and elemental abundances."
-From GALAH the values we care about are: 
-- logg
-- teff
-- Fe/H
 
 ## Data Cleaning and Truncation
 We cut our data to include stars with an effective temperature less than 9000K. We do this to eliminate any very high mass stars, which are less common, more variable, and harder to derive the properties of. We chose to only include stars brigher than 18 magnitudes (stars with a larger magnitude are dimmer). We calculate this magnitude using the observed parallax and the photmeteric g band magnitude.
@@ -22,17 +25,16 @@ $M = m + 5*(\log_{10} (1/ \text{parallax}))$
 - Data missing some metallicities, dropping those rows entirely
 - Cutting off all stars with temperatures greater than $T_{eff}=9000K$ to limit selection to less extreme high mass stars, intermediate and low mass stars.
 
-Below is an HR diagram, which plots the brightness of a star against its temperature.
 ![Yu_HR](https://github.com/user-attachments/assets/7cb71876-bc85-4ed7-bf54-bb0b81051f9c)
 
 **GALAH**
 - We took the entire sample of GALAH data and made no cuts since the temperatures in the sample did not go over 9000 K.
+
 ![galah_hrdiagram](https://github.com/user-attachments/assets/9b567aec-e711-4c9c-beba-db2316ab8fbc)
 
 **Gaia and TESS**
+
 ![tess_hrdiagram](https://github.com/user-attachments/assets/2185ae27-971a-419a-85a7-21f810153bfc)
-
-
 
 # Environment Management
 To create a python environment that is suitable to run this code, please run the following:
