@@ -25,3 +25,15 @@ pip install -r requirements.txt
 python -m ipykernel install --user --name geo_final --display-name "Python geo_final"
 ```
 From this environment, you can run `jupyter notebook` and select the kernel named `geo_final`
+
+# Machine Learning 
+K means clustering to determine if we can reproduce the sub groups of stars that astronomers has created. 
+
+# Analysis 
+We are looking to determine if the K means clustering can determine the various differentiated charactersitics which astronomers have placed on different stars. Some of these groups include evolutionary states such as main sequence stars, red giant stars, and white dwarfs. Another includes differentiating between low mass and intermediate mass stars, which is an ongoing field of research in stellar structure research (Beyer et al. 2024). Lastly, we will look to possibly see if they can differentiate different spectral classes within stars parameters. Main sequence spectral types were generally broken up into O, B, A, F, G, K, and M type stars. These sub groups were declared by things such as mass, effective temperature and color (Pecaut & Mamajek 2004). 
+
+
+
+
+
+
