@@ -1,25 +1,29 @@
 # Project Summary: 
-# DATA
-We are using the GAIA DR3 TESS target star sample data set. This star sample includes stellar properties derrived from Gaia photometric observations and applied to stellar isochrone fitting to get the temeprature, logg, mass, and luminosities that we will use. 
-This is considered to be one of largest and most thorough data sets for stellar astronomers to use. We cut our data to include stars with an effective temperature less than 9000K. We do this to elimnate any very high mass stars, which are less common, more variable, and harder to observe. We also then calculate the absolute magnitude of the stars in our sample using the observed parallax and the photmeteric g band magnitude. Once we have a absolute magnitude we can make a magnitude cut. In astronomy we chose a the opposite values, meaning stars with a magnitude greater than zero are less bright than stars greater than zero. So we chose a magnitude cut of only including stars less than 18 magnitudes. This also removes any stars that calculated weird absolute magnitudes from the observations. Our sample initially had 17558141 stars, after our effective temperature and absolute magnitude cuts we have 
 
-We determine the absolute magnitude 
-$M = m + 5*(log 10 (1/ \text{parallax)))$
+# Background
+Stellar Classification is a notoriously difficult 
 
-Our second sample is from the Yu et al 2023 sample of revised extinctions and radii for 1.5 million stars observed by APOGEE, GALAH, and RAVE. This sample well known to provide a well derived and unbiased set of parameters for a large number of stars with both spectroscopic and photometric data. They created a pipeline SEDEX which compares the spectral energy distribution predicted by the
-MARCS and BOSZ model spectra with 32 photometric bandpasses, combining data from 9 major, large-volume photometric surveys and uses asteroseismology to validate values.  
+# Data
+The first data set we are using is the GAIA DR3 TESS target star sample data set. This star sample includes stellar properties derrived from Gaia photometric observations and applied to stellar isochrone fitting to get the temperature, surface gravity, mass, and luminosities that we will use. This is considered to be one of largest and most thorough data available to astronomers, and was designed to estimate distances to stars. The data was made available through the Gaia [https://gea.esac.esa.int/archive/](online archive).
 
-Another sample we are using "the GALAH_DR3_main_allstar_v2 is our main results catalogue. It contains results for 588,571 stars observed as part of the GALAH, K2-HERMES, TESS-HERMES, and other related surveys that used the HERMES spectrograph on the Anglo-Australian Telescope between November 2013 and February 2019. For all targets we provide stellar parameters, radial velocities, and elemental abundances."
+Our second sample is from the Yu et al 2023 sample of revised extinctions and radii for 1.5 million stars observed by APOGEE, GALAH, and RAVE. This sample well known to provide a well derived and unbiased set of parameters for a large number of stars with both spectroscopic and photometric data. The data was made available throug [https://iopscience.iop.org/article/10.3847/1538-4365/acabc8#apjsacabc8t4](this paper) (Yu et al. 2023)
+
+The third set we are using "the GALAH_DR3_main_allstar_v2 is our main results catalogue. It contains results for 588,571 stars observed as part of the GALAH, K2-HERMES, TESS-HERMES, and other related surveys that used the HERMES spectrograph on the Anglo-Australian Telescope between November 2013 and February 2019. For all targets we provide stellar parameters, radial velocities, and elemental abundances."
 From GALAH the values we care about are: 
 - logg
 - teff
 - Fe/H
 
-
 ## Data Cleaning and Truncation
+We cut our data to include stars with an effective temperature less than 9000K. We do this to eliminate any very high mass stars, which are less common, more variable, and harder to derive the properties of. We chose to only include stars brigher than 18 magnitudes (stars with a larger magnitude are dimmer). We calculate this magnitude using the observed parallax and the photmeteric g band magnitude.
+We determine the absolute magnitude to be:
+$M = m + 5*(\log_{10} (1/ \text{parallax}))$
 **GALAH + APOGEE + RAVE**
 - Data missing some metallicities, dropping those rows entirely
 - Cutting off all stars with temperatures greater than $T_{eff}=9000K$ to limit selection to less extreme high mass stars, intermediate and low mass stars.
+
+Below is an HR diagram, which plots the brightness of a star against its temperature.
+![Yu_HR](https://github.com/user-attachments/assets/7cb71876-bc85-4ed7-bf54-bb0b81051f9c)
 
 **GALAH**
 - We took the entire sample of GALAH data and made no cuts since the temperatures in the sample did not go over 9000 K.
