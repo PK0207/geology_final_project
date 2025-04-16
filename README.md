@@ -1,6 +1,7 @@
 # Project Summary: 
 # DATA
-We are using the GAIA DR3 star sample data set. This is considered to be one of largest and most thorough data sets for stellar astronomers to use. We cut our data to include stars with an effective temperature less than 9000K. We do this to elimnate any very high mass stars, which are less common, more variable, and harder to observe. We also then calculate the absolute magnitude of the stars in our sample using the observed parallax and the photmeteric g band magnitude. Once we have a absolute magnitude we can make a magnitude cut. In astronomy we chose a the opposite values, meaning stars with a magnitude greater than zero are less bright than stars greater than zero. So we chose a magnitude cut of only including stars less than 18 magnitudes. This also removes any stars that calculated weird absolute magnitudes from the observations. Our sample initially had 17558141 stars, after our effective temperature and absolute magnitude cuts we have 
+We are using the GAIA DR3 TESS target star sample data set. This star sample includes stellar properties derrived from Gaia photometric observations and applied to stellar isochrone fitting to get the temeprature, logg, mass, and luminosities that we will use. 
+This is considered to be one of largest and most thorough data sets for stellar astronomers to use. We cut our data to include stars with an effective temperature less than 9000K. We do this to elimnate any very high mass stars, which are less common, more variable, and harder to observe. We also then calculate the absolute magnitude of the stars in our sample using the observed parallax and the photmeteric g band magnitude. Once we have a absolute magnitude we can make a magnitude cut. In astronomy we chose a the opposite values, meaning stars with a magnitude greater than zero are less bright than stars greater than zero. So we chose a magnitude cut of only including stars less than 18 magnitudes. This also removes any stars that calculated weird absolute magnitudes from the observations. Our sample initially had 17558141 stars, after our effective temperature and absolute magnitude cuts we have 
 
 We determine the absolute magnitude 
 $ M = m + 5*(log 10 (1/ parallax))$
@@ -21,8 +22,9 @@ From GALAH the values we care about are:
 - We took the entire sample of GALAH data and made no cuts since the temperatures in the sample did not go over 9000 K.
 ![galah_hrdiagram](https://github.com/user-attachments/assets/9b567aec-e711-4c9c-beba-db2316ab8fbc)
 
-**Gaia and XGBoost**
-![gaia_hrdiagram](https://github.com/user-attachments/assets/931bbed4-9891-4280-aa46-71fd0d5248ed)
+**Gaia and TESS**
+![tess_hrdiagram](https://github.com/user-attachments/assets/2185ae27-971a-419a-85a7-21f810153bfc)
+
 
 
 # Environment Management
