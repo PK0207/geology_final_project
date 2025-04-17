@@ -55,10 +55,12 @@ We are looking to determine if the K means clustering can determine the various 
 
 ### GALAH clustering results
 ![galah_hrdiagram_cluster](https://github.com/user-attachments/assets/62d04d80-d3de-41db-94c4-467beb5754c6)
+This plot is of the GALAH survey data with five cluster groups. We can see here a distinct relation between the groups and the divisions in spectral class.
 
 ### GALAH+APOGEE+RAVE clustering results
 ![Yu_clust_3wTemp](https://github.com/user-attachments/assets/6fe2a0a5-2b27-4864-818f-133806198fbc)
 ![Yu_clust_5wTemp](https://github.com/user-attachments/assets/83f5594a-a927-4f44-aeb7-3b1495a25319)
 
-
+### Cool Result 
 Another clustering effect we see is the Kraft Break. The Kraft Break is known as the change in rotational velocity between low and intermediate mass stars. It is well known that stars above ~8 Msol will end their lifetime as black holes. The division and understanding of stellar evolution for low and intermediate mass stars is less known. In previous research we know that regular main seuqence F-type stars above 6550 K will continue to rapidly rotate as they evolve and any star less than 6550 K will continue to slowly lose their rotational speed over time. This break can then be theorized back to the internal physics within the stars. Inside the lower mass stars have an outter convective zone which generates a magnetic field. When coupled with the winds the star feels a torque againsts its rotation and begins to slow down. Stars above the break lack an outter convective zone, which causes them to lack an induced magnetic field and the star continues to rapidly rotate over its lifetime. 
+
