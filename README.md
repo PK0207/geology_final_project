@@ -118,3 +118,18 @@ The temperature and surface gravity in the 1st PC are very strongly weighted, in
 The temperature, surface gravity, luminosity, and radius have about equal loadings. What is interesting is that the first three are analogues of each other (as introduced in the HR diagram discussion) while the latter is derived from them. **The explained variance of PC1 in this dataset is 51%**
 
 ![image](https://github.com/user-attachments/assets/afff791d-791f-429f-a90f-9bd5d1434132)
+
+## Random Forest Classification
+The random forest classifier is good at drawing linear boundaries between clusters, which is why we tested the consistency of these classifications in subgroups of the datasets using this algorithm. All three datasets show this consistency.
+
+### Gaia and TESS
+
+![image](https://github.com/user-attachments/assets/fcc0eb68-ca44-44a0-a62d-a9c58f5d2601)
+
+### GALAH
+
+![image](https://github.com/user-attachments/assets/e6fce5a7-fde1-4ad2-bca3-51a717afa32f)
+
+### GALAH + APOGEE + RAVE
+
+![image](https://github.com/user-attachments/assets/b683cbd2-43d9-4353-a574-99270accdf4b)
