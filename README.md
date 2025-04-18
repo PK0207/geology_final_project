@@ -5,6 +5,7 @@ Beyond the star in our own system, it is rather difficult to observe other stars
 
 The first issue also exacerbates the second. Our goal in this project is to take **a physics agnostic approach to determining stellar classes** and use machine learning to highlight the inherent strong relationships within the data themselves.
 Stellar classes are usually represented on a Hertzsprunng-Russel (HR) diagram (shown below). This diagram plots the luminosity (observed) of stars against their temperature (derived). The resultant shape of the HR diagram is the evolutionary tracks a star could follow in its lifespan:
+
 ![HR_diag](https://github.com/user-attachments/assets/6410d742-d82e-48f8-af1e-536099bf4c5a)
 
 The star starts from the bottom right, and evolves along the main-sequence, but could "turn-off" to the giant branch, dwarf branch, or supergiant branch. _Our data will be primarily comprised of main sequence stars._ Notice in the image above, along the x-axis are the stellar classifications - OBAFGKM - listed roughly in decreasing mass order. The best indicator of stellar class is the temperature, and we will be using three different datasets to see if:
@@ -54,6 +55,7 @@ Differentiating between low mass and intermediate mass starsis an ongoing field 
 
 ## K means clustering
 ### Gaia K-means clustering results
+
 ![image](https://github.com/user-attachments/assets/b374fef8-8098-49c6-8d70-e86a6af3f3e2)
 
 The clustering results show that for low mass stars (stars further right on the diagram), the classification is preferentially at higher temperatures, and for high mass stars are preferentially classified lower. This effect is only seen at the boundaries of these categories.
@@ -65,6 +67,7 @@ The confusion matrix demonstrates this preferential misclassification seen in al
 ### GALAH clustering results
 
 ![image](https://github.com/user-attachments/assets/315329f8-deba-46e7-8e0c-1ab41539c251)
+
 This plot is of the GALAH survey data with five cluster groups. We can see here a distinct relation between the groups and the divisions in spectral class. These clusters line up better with the boundaries of the spectral classes, and the centers follow the main sequence line and aren't pulled up by the giant branch "turn-off" in the top right.
 This dataset also exclusively misclassifies points as higher temperature as they actually are, which again is represented in the confusion matrix below:
 
@@ -73,9 +76,11 @@ This dataset also exclusively misclassifies points as higher temperature as they
 
 ### GALAH+APOGEE+RAVE clustering results
 The dataset that combines multiple surveys performs the worst when it comes to identifying boundaries in temperature classifications. This is unsurprising because the way that temperature of the stars is determined in these datasets differs based on what information they are able to derive it from:
+
 ![Yu_clust_5wTemp](https://github.com/user-attachments/assets/83f5594a-a927-4f44-aeb7-3b1495a25319)
 
 These differences result in G0 stars being entirely misclassified as higher mass stars:
+
 ![image](https://github.com/user-attachments/assets/3622ea46-c134-4ee5-9af8-5d5d86b92c83)
 
 ### Clustering on normalized data
@@ -90,5 +95,26 @@ Here we can see divisions going along the main sequence track, and the algorithm
 Another clustering effect we see is the Kraft Break. The Kraft Break is known as the change in rotational velocity between low and intermediate mass stars. It is well known that stars above ~8 Msol will end their lifetime as black holes. The division and understanding of stellar evolution for low and intermediate mass stars is less known. In previous research we know that regular main seuqence F-type stars above 6550 K will continue to rapidly rotate as they evolve and any star less than 6550 K will continue to slowly lose their rotational speed over time. This break can then be theorized back to the internal physics within the stars. Inside the lower mass stars have an outter convective zone which generates a magnetic field. When coupled with the winds the star feels a torque againsts its rotation and begins to slow down. Stars above the break lack an outter convective zone, which causes them to lack an induced magnetic field and the star continues to rapidly rotate over its lifetime. 
 
 ### The class boundaries across datasets:
+![image](https://github.com/user-attachments/assets/eddf6a2d-cb1e-4699-a265-e17dc68da10c)
+
+The table above shows the class boundaries identified in each dataset, with the "true" boundaries listed in the right-most column. These true temperatures are spectral class features defined in Pecaut & Mamajek 2022. Every dataset finds higher bounds in every class, but the differences are the lowest in the G0 stars class. This is the class of our sun, meaning its properties are very well studied and we have the most confidence in derived parameter values like temperature in this class.
+
+## Principal Component Analysis
+Before conducting PCA on the data, we normalized everything in order to examine the loadings of the 1st PC.
+
+### Gaia and TESS
+The temperature, surface gravity, luminosity, and mass (all related and interchangeable parameters) are weighted about equally for the 1st PC. **The explained variance of PC1 in this dataset is the highest at 61%**
+
+![image](https://github.com/user-attachments/assets/1274619b-eb11-43ab-b22d-d7deaceaa654)
 
 
+### GALAH
+The temperature and surface gravity in the 1st PC are very strongly weighted, indicating that the explained variance primarily lies along these two parameters. These are also analogues of each other, so there is some degeneracy of information here. **The explained variance of PC1 in this dataset is 46%**
+
+![image](https://github.com/user-attachments/assets/4adbf8ef-eb85-4c2c-977a-213fa5030c5f)
+
+
+### GALAH + APOGEE + RAVE
+The temperature, surface gravity, luminosity, and radius have about equal loadings. What is interesting is that the first three are analogues of each other (as introduced in the HR diagram discussion) while the latter is derived from them. **The explained variance of PC1 in this dataset is 51%**
+
+![image](https://github.com/user-attachments/assets/afff791d-791f-429f-a90f-9bd5d1434132)
