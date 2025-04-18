@@ -48,27 +48,47 @@ python -m ipykernel install --user --name geo_final --display-name "Python geo_f
 From this environment, you can run `jupyter notebook` and select the kernel named `geo_final`
 
 # Analysis 
+For each dataset, we search for the temperature classifications using _K Means Clustering_, examine the explained variance from each stellar parameter used using _Principal Component Analysis_, and train a _Random Forest Classifier_ to see if these groupings are maintained across subsamples of the data. We note that for K means clustering, the data is _not_ normalized beforehand as we want to understand the deviation from official temperature bounds for the 5 classes in each datasets. We present an example of clustered, normalized data and discuss what patterns we find there.
+
+Differentiating between low mass and intermediate mass starsis an ongoing field of research in stellar structure research (Beyer et al. 2024). Main sequence spectral types were generally broken up into O, B, A, F, G, K, and M type stars. These sub-groups were categorized based on mass, effective temperature and color (Pecaut & Mamajek 2022). Our star samples allow us to see clustering groups along the F, G, K, and M spectral type lines. Due to our sample selection, we see agreeing results from the K means clustering along the classification lines just based on effective temperature and logg parameters.
 
 ## K means clustering
-We are looking to determine if the K means clustering can determine the various differentiated charactersitics which astronomers have placed on different stars. Some of these groups include evolutionary states such as main sequence stars, red giant stars, and white dwarfs. Another includes differentiating between low mass and intermediate mass stars, which is an ongoing field of research in stellar structure research (Beyer et al. 2024). Main sequence spectral types were generally broken up into O, B, A, F, G, K, and M type stars. These sub groups were categorized based on mass, effective temperature and color (Pecaut & Mamajek 2022). Our star samples allow us to see clustering groups along the F, G, K, and M spectral type lines. Due to our sample selection, we see agreeing results from the K means clustering along the classification lines just based on effective temperature and logg parameters. We chose 
-
 ### Gaia K-means clustering results
 ![image](https://github.com/user-attachments/assets/b374fef8-8098-49c6-8d70-e86a6af3f3e2)
 
-The clustering results show that the 
+The clustering results show that for low mass stars (stars further right on the diagram), the classification is preferentially at higher temperatures, and for high mass stars are preferentially classified lower. This effect is only seen at the boundaries of these categories.
 
 ![image](https://github.com/user-attachments/assets/bebca7f5-4b47-4afc-9b65-04be56eda7fe)
 
-
+The confusion matrix demonstrates this preferential misclassification seen in all categories except the highest mass (M0) stars.
 
 ### GALAH clustering results
-![galah_hrdiagram_cluster](https://github.com/user-attachments/assets/62d04d80-d3de-41db-94c4-467beb5754c6)
-This plot is of the GALAH survey data with five cluster groups. We can see here a distinct relation between the groups and the divisions in spectral class.
+
+![image](https://github.com/user-attachments/assets/315329f8-deba-46e7-8e0c-1ab41539c251)
+This plot is of the GALAH survey data with five cluster groups. We can see here a distinct relation between the groups and the divisions in spectral class. These clusters line up better with the boundaries of the spectral classes, and the centers follow the main sequence line and aren't pulled up by the giant branch "turn-off" in the top right.
+This dataset also exclusively misclassifies points as higher temperature as they actually are, which again is represented in the confusion matrix below:
+
+![image](https://github.com/user-attachments/assets/5ce22055-4c1d-44c3-a090-b70ecaf91ce9)
+
 
 ### GALAH+APOGEE+RAVE clustering results
-![Yu_clust_3wTemp](https://github.com/user-attachments/assets/6fe2a0a5-2b27-4864-818f-133806198fbc)
+The dataset that combines multiple surveys performs the worst when it comes to identifying boundaries in temperature classifications. This is unsurprising because the way that temperature of the stars is determined in these datasets differs based on what information they are able to derive it from:
 ![Yu_clust_5wTemp](https://github.com/user-attachments/assets/83f5594a-a927-4f44-aeb7-3b1495a25319)
 
-### Cool Result 
+These differences result in G0 stars being entirely misclassified as higher mass stars:
+![image](https://github.com/user-attachments/assets/3622ea46-c134-4ee5-9af8-5d5d86b92c83)
+
+### Clustering on normalized data
+By clustering on non-normalized data, the clustering depends almost entirely on the temperature divisions, as these numbers (of order ~$10^3$ K) are much greater than any of the other parameters involved.
+When we run clustering on normalized data, the question that we ask is a little different: _What divisions in the shape of the HR diagram can we see when other parameters are introduced?_ This investigation is done on the dataset that combines surveys as the HR diagram has more diversity in stars and has more points:
+
+ ![image](https://github.com/user-attachments/assets/b2710b96-4ed4-47e6-b07d-85252d57ddd6)
+
+Here we can see divisions going along the main sequence track, and the algorithm is able to identify the giant branches in the top right. The three main sequence groups can be classified as low mass, and intermediate mass stars, where there are two subgroups in the intermediate mass category (groups 2&4). This pattern can be seen in the clustering of non-normalized data as well.
+
+### Cool Result: The Kraft Break!
 Another clustering effect we see is the Kraft Break. The Kraft Break is known as the change in rotational velocity between low and intermediate mass stars. It is well known that stars above ~8 Msol will end their lifetime as black holes. The division and understanding of stellar evolution for low and intermediate mass stars is less known. In previous research we know that regular main seuqence F-type stars above 6550 K will continue to rapidly rotate as they evolve and any star less than 6550 K will continue to slowly lose their rotational speed over time. This break can then be theorized back to the internal physics within the stars. Inside the lower mass stars have an outter convective zone which generates a magnetic field. When coupled with the winds the star feels a torque againsts its rotation and begins to slow down. Stars above the break lack an outter convective zone, which causes them to lack an induced magnetic field and the star continues to rapidly rotate over its lifetime. 
+
+### The class boundaries across datasets:
+
 
