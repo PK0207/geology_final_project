@@ -2,6 +2,7 @@
 Beyond the star in our own system, it is rather difficult to observe other stars due to techology, distance, interference, etc. In the new era of new telescopes and large stellar surveys there have many astronomers who have taken on the feat of perfecting the physical structure and feature assumptions of various different subgroups of stars. Classifying stars is useful to understand the patterns in physical properties and therefore formation histories, chemical processes, and other astrophysics. However, stellar classification is a notoriously difficult task in astronomy. The boundaries between stellar classes are debated due to new discoveries in physical chemical properties. H-R diagram placement is plagued with systematic errors, this makes testing evolutionary models impossible. There are two persistent complications in this pursuit:
 1. _It is difficult to accurately measure stellar parameters_
 2. _Drawing phyiscal relationships between stellar observations and parameters is non-trivial_
+
 The first issue also exacerbates the second. Our goal in this project is to take **a physics agnostic approach to determining stellar classes** and use machine learning to highlight the inherent strong relationships within the data themselves.
 Stellar classes are usually represented on a Hertzsprunng-Russel (HR) diagram (shown below). This diagram plots the luminosity (observed) of stars against their temperature (derived). The resultant shape of the HR diagram is the evolutionary tracks a star could follow in its lifespan:
 ![HR_diag](https://github.com/user-attachments/assets/6410d742-d82e-48f8-af1e-536099bf4c5a)
@@ -50,8 +51,15 @@ From this environment, you can run `jupyter notebook` and select the kernel name
 
 ## K means clustering
 We are looking to determine if the K means clustering can determine the various differentiated charactersitics which astronomers have placed on different stars. Some of these groups include evolutionary states such as main sequence stars, red giant stars, and white dwarfs. Another includes differentiating between low mass and intermediate mass stars, which is an ongoing field of research in stellar structure research (Beyer et al. 2024). Main sequence spectral types were generally broken up into O, B, A, F, G, K, and M type stars. These sub groups were categorized based on mass, effective temperature and color (Pecaut & Mamajek 2022). Our star samples allow us to see clustering groups along the F, G, K, and M spectral type lines. Due to our sample selection, we see agreeing results from the K means clustering along the classification lines just based on effective temperature and logg parameters. We chose 
+
 ### Gaia K-means clustering results
-![gaia_hrdiagram_cluster](https://github.com/user-attachments/assets/3efeb390-e76a-4950-b093-b2f9efd31ed9)
+![image](https://github.com/user-attachments/assets/b374fef8-8098-49c6-8d70-e86a6af3f3e2)
+
+The clustering results show that the 
+
+![image](https://github.com/user-attachments/assets/bebca7f5-4b47-4afc-9b65-04be56eda7fe)
+
+
 
 ### GALAH clustering results
 ![galah_hrdiagram_cluster](https://github.com/user-attachments/assets/62d04d80-d3de-41db-94c4-467beb5754c6)
